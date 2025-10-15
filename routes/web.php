@@ -1,15 +1,13 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class, 'index'] );
-Route::get('/posts',function(){
-return  "aqui se mostraran los posts"; 
-});
-Route::get('/posts/create',function(){
-    return "aqui se mostrara el formulario para crear un post";
-});
-Route::get('/posts/{post}',function($post){
-    return "aqui se mostrara el post {$post}";
-});
+
+Route::get('/posts',[PostController::class,'index']);
+
+Route::get('/posts/create',[PostController::class , 'create']);
+
+Route::get('/posts/{post}',[PostController::class,'show']);
